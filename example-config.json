@@ -27,6 +27,11 @@
         "azure_deployment": "your-azure-deployment-id",
         "api_version": "2024-02-01"
       }
+    },
+    "ollama": {
+      "base_url": "http://localhost:11434",
+      "connect_timeout": 60.0,
+      "read_timeout": 20.0
     }
   },
   // Each agent can use a different model or configuration. The default, as before, is GPT4 Turbo

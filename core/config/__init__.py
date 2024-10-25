@@ -70,7 +70,7 @@ class LLMProvider(str, Enum):
     GROQ = "groq"
     LM_STUDIO = "lm-studio"
     AZURE = "azure"
-
+    OLLAMA = "ollama"
 
 class UIAdapter(str, Enum):
     """

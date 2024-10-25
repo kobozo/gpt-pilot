@@ -288,7 +288,7 @@ class BaseLLMClient:
             request_log.completion_tokens += completion_tokens
             if parser:
                 try:
-                    response = parser(response)
+                    response = parser(response.strip())
                     break
                 except ValueError as err:
                     request_log.error = f"Error parsing response: {err}"
@@ -333,6 +333,8 @@ class BaseLLMClient:
         from .anthropic_client import AnthropicClient
         from .azure_client import AzureClient
         from .groq_client import GroqClient
+        from .ollama_client import OllamaClient
+        from .onemin_ai_client import OneMinAIClient
         from .openai_client import OpenAIClient
 
         if provider == LLMProvider.OPENAI:
@@ -343,6 +345,10 @@ class BaseLLMClient:
             return GroqClient
         elif provider == LLMProvider.AZURE:
             return AzureClient
+        elif provider == LLMProvider.ONEMINAI:
+            return OneMinAIClient
+        elif provider == LLMProvider.OLLAMA:
+            return OllamaClient
         else:
             raise ValueError(f"Unsupported LLM provider: {provider.value}")
 
