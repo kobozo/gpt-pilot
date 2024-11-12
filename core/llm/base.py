@@ -334,7 +334,6 @@ class BaseLLMClient:
         from .azure_client import AzureClient
         from .groq_client import GroqClient
         from .ollama_client import OllamaClient
-        from .onemin_ai_client import OneMinAIClient
         from .openai_client import OpenAIClient
 
         if provider == LLMProvider.OPENAI:
@@ -345,8 +344,6 @@ class BaseLLMClient:
             return GroqClient
         elif provider == LLMProvider.AZURE:
             return AzureClient
-        elif provider == LLMProvider.ONEMINAI:
-            return OneMinAIClient
         elif provider == LLMProvider.OLLAMA:
             return OllamaClient
         else:
